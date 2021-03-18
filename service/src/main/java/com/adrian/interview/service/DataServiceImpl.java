@@ -4,13 +4,16 @@ import com.adrian.interview.model.QueryRequestModel;
 import com.adrian.interview.model.RecordModel;
 import com.adrian.interview.model.predicate.GenericSpecification;
 import com.adrian.interview.repository.CampaignRepository;
-import com.adrian.interview.utils.loader.DataLoader;
 import com.adrian.interview.utils.aggregationHandling.FormulaProcessor;
+import com.adrian.interview.utils.loader.LoadDataFromUrlToH2ByBulk;
+import com.adrian.interview.utils.loader.LoadDataFromUrlToH2ByStep;
+import com.adrian.interview.utils.loader.LoadDataInterface;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,12 +23,11 @@ public class DataServiceImpl implements DataService {
     @Autowired
     CampaignRepository campaignRepository;
 
-    private static Map<String, Boolean> strategies;
+    private static Map<String, LoadDataInterface> strategies = new HashMap<>();
 
     public List<RecordModel> getAll() {
         return campaignRepository.findAll();
     }
-
 
     @Override
     public Object getDataWithPredicate(QueryRequestModel queryModel) {
@@ -52,18 +54,12 @@ public class DataServiceImpl implements DataService {
 
 
     public boolean loadData(String url, String strategy) throws MalformedURLException {
-        switch (strategy) {
-            case "byStep":
-                return new DataLoader(campaignRepository).loadDataFromUrlToH2ByStep(url);
-            case "byBulk":
-                return new DataLoader(campaignRepository).loadDataFromUrlToH2ByBulk(url);
-            default:
-                return false;
-        }
+        populateStrategies();
+        return strategies.get(strategy).loadData(url, campaignRepository);
     }
 
-    private void populateStrategies(String url, String strategy) throws MalformedURLException {
-        strategies.put("byStep", new DataLoader(campaignRepository).loadDataFromUrlToH2ByStep(url));
+    private void populateStrategies() {
+        strategies.put("byBulk", new LoadDataFromUrlToH2ByBulk());
+        strategies.put("byStep", new LoadDataFromUrlToH2ByStep());
     }
-
 }
