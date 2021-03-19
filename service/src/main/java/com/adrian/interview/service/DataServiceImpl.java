@@ -3,6 +3,7 @@ package com.adrian.interview.service;
 import com.adrian.interview.aggregationHandling.predicate.GenericSpecification;
 import com.adrian.interview.controller.queryModel.QueryRequestModel;
 import com.adrian.interview.entity.RecordModel;
+import com.adrian.interview.exception.InvalidActionException;
 import com.adrian.interview.repository.CampaignRepository;
 import com.adrian.interview.aggregationHandling.FormulaProcessor;
 import com.adrian.interview.utils.loader.LoadDataFromUrlToH2ByBulk;
@@ -58,7 +59,11 @@ public class DataServiceImpl implements DataService {
 
     public boolean loadData(String url, String strategy) throws MalformedURLException {
         populateStrategies();
-        return strategies.get(strategy).loadData(url, campaignRepository);
+        try {
+            return strategies.get(strategy).loadData(url, campaignRepository);
+        } catch (NullPointerException npe) {
+            throw new InvalidActionException("Unsupported strategy");
+        }
     }
 
     private void populateStrategies() {
