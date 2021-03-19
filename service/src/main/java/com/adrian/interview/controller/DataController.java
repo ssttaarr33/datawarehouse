@@ -1,15 +1,15 @@
 package com.adrian.interview.controller;
 
 import com.adrian.interview.controller.queryModel.QueryRequestModel;
+import com.adrian.interview.controller.responseModel.RestResponse;
+import com.adrian.interview.exception.InvalidActionException;
+import com.adrian.interview.exception.exceptionHandling.ETLException;
+import com.adrian.interview.exception.exceptionHandling.Exceptions;
 import com.adrian.interview.operation.Operation;
 import com.adrian.interview.operation.OperationFactory;
 import com.adrian.interview.service.DataService;
-import com.adrian.interview.exception.exceptionHandling.ETLException;
-import com.adrian.interview.exception.exceptionHandling.Exceptions;
-import com.adrian.interview.exception.InvalidActionException;
-import com.adrian.interview.controller.responseModel.RestResponse;
 import io.swagger.annotations.ApiOperation;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @Slf4j
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping(path = "${app.endpoint.api}", produces = APPLICATION_JSON_VALUE)
 public class DataController<T> {
 

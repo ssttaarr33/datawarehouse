@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.adrian.interview</groupId>
             <artifactId>service</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

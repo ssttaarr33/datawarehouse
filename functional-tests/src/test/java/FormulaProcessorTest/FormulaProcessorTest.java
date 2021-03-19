@@ -32,7 +32,7 @@ class FormulaProcessorTest {
     private List<RecordModel> all;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         formula1 = new FormulaType1();
         formula1.setMultiplier(List.of(Constants.CLICKS));
         formula1.setDivisor(List.of(Constants.IMPRESSIONS));
@@ -52,13 +52,13 @@ class FormulaProcessorTest {
 
     @Test
     @DisplayName("Test process formula 1")
-    void testProcessFormula1(){
+    void testProcessFormula1() {
         assertEquals(50.0f, FormulaProcessor.processFormula(formula1, all));
     }
 
     @Test
     @DisplayName("Test process formula 2")
-    void testProcessFormula2(){
+    void testProcessFormula2() {
         assertEquals(50.0, FormulaProcessor.processFormula(formula2, all));
     }
 }
