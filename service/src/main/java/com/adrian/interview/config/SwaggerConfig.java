@@ -1,4 +1,4 @@
-package com.adrian.interview.utils.config;
+package com.adrian.interview.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

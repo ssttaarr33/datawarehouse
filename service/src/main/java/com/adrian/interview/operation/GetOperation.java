@@ -1,13 +1,18 @@
 package com.adrian.interview.operation;
 
 import com.adrian.interview.model.QueryRequestModel;
+import com.adrian.interview.model.value.QueryOperation;
 import com.adrian.interview.service.DataService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
-public class GetOperation implements Operation {
+@RequiredArgsConstructor
+public class GetOperation implements OperationInfo {
 
-    private DataService dataService;
+    private final DataService dataService;
+
+    public QueryOperation getQueryOperationType() {
+        return QueryOperation.FIND_ALL;
+    }
 
     @Override
     public Object apply(QueryRequestModel requestModel) {

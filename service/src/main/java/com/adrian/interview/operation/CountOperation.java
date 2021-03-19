@@ -1,13 +1,18 @@
 package com.adrian.interview.operation;
 
 import com.adrian.interview.model.QueryRequestModel;
+import com.adrian.interview.model.value.QueryOperation;
 import com.adrian.interview.service.DataService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
-public class CountOperation implements Operation {
+@RequiredArgsConstructor
+public class CountOperation implements OperationInfo {
 
-    private DataService dataService;
+    private final DataService dataService;
+
+    public QueryOperation getQueryOperationType() {
+        return QueryOperation.COUNT;
+    }
 
     @Override
     public Object apply(QueryRequestModel requestModel) {

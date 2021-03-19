@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-class AggregationFactory {
+final class AggregationFactory {
     private static Map<Pair, AggregationType> aggregators = new HashMap<>();
 
     static {

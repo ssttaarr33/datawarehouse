@@ -7,12 +7,12 @@ import com.adrian.interview.service.DataService;
 import com.adrian.interview.utils.errorHandling.ETLException;
 import com.adrian.interview.utils.errorHandling.Exceptions;
 import com.adrian.interview.utils.errorHandling.InvalidActionException;
+import com.adrian.interview.utils.responseModel.RestResponse;
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import com.adrian.interview.utils.responseModel.RestResponse;
 
 import javax.validation.constraints.NotEmpty;
 import java.net.MalformedURLException;
@@ -22,13 +22,12 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @Slf4j
 @RestController
+@AllArgsConstructor
 @RequestMapping(path = "${app.endpoint.api}", produces = APPLICATION_JSON_VALUE)
 public class DataController<T> {
 
-    @Autowired
-    private DataService dataService;
-    @Autowired
-    private OperationFactory operationFactory;
+    private final DataService dataService;
+    private final OperationFactory operationFactory;
 
     @CrossOrigin(origins = "${app.allowed.origin.localhost}")
     @GetMapping("${app.get.data}")
