@@ -1,10 +1,9 @@
 package com.adrian.interview.config;
 
-import com.adrian.interview.model.value.QueryOperation;
+import com.adrian.interview.aggregationHandling.value.QueryOperation;
 import com.adrian.interview.operation.CountOperation;
 import com.adrian.interview.operation.GetOperation;
 import com.adrian.interview.operation.Operation;
-import com.adrian.interview.operation.OperationInfo;
 import com.adrian.interview.service.DataService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,10 +25,10 @@ public class Config {
     }
 
     @Bean
-    public Map<QueryOperation, Operation> getOperation(List<OperationInfo> operations) {
+    public Map<QueryOperation, Operation> getOperation(List<Operation> operations) {
         return operations
                 .stream()
-                .collect(Collectors.toMap(OperationInfo::getQueryOperationType, Function.identity(),
+                .collect(Collectors.toMap(Operation::getQueryOperationType, Function.identity(),
                         (existing, replacement) -> existing));
     }
 }

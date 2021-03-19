@@ -1,6 +1,6 @@
 package com.adrian.interview.operation;
 
-import com.adrian.interview.model.value.QueryOperation;
+import com.adrian.interview.aggregationHandling.value.QueryOperation;
 import com.adrian.interview.service.DataService;
 import org.springframework.stereotype.Service;
 

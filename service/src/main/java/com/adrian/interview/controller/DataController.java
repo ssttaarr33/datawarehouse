@@ -1,13 +1,13 @@
 package com.adrian.interview.controller;
 
-import com.adrian.interview.model.QueryRequestModel;
+import com.adrian.interview.controller.queryModel.QueryRequestModel;
 import com.adrian.interview.operation.Operation;
 import com.adrian.interview.operation.OperationFactory;
 import com.adrian.interview.service.DataService;
-import com.adrian.interview.utils.errorHandling.ETLException;
-import com.adrian.interview.utils.errorHandling.Exceptions;
-import com.adrian.interview.utils.errorHandling.InvalidActionException;
-import com.adrian.interview.utils.responseModel.RestResponse;
+import com.adrian.interview.exception.exceptionHandling.ETLException;
+import com.adrian.interview.exception.exceptionHandling.Exceptions;
+import com.adrian.interview.exception.InvalidActionException;
+import com.adrian.interview.controller.responseModel.RestResponse;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,10 +1,10 @@
 package com.adrian.interview.service;
 
-import com.adrian.interview.model.QueryRequestModel;
-import com.adrian.interview.model.RecordModel;
-import com.adrian.interview.model.predicate.GenericSpecification;
+import com.adrian.interview.controller.queryModel.QueryRequestModel;
+import com.adrian.interview.entity.RecordModel;
+import com.adrian.interview.aggregationHandling.predicate.GenericSpecification;
 import com.adrian.interview.repository.CampaignRepository;
-import com.adrian.interview.utils.aggregationHandling.FormulaProcessor;
+import com.adrian.interview.aggregationHandling.FormulaProcessor;
 import com.adrian.interview.utils.loader.LoadDataFromUrlToH2ByBulk;
 import com.adrian.interview.utils.loader.LoadDataFromUrlToH2ByStep;
 import com.adrian.interview.utils.loader.LoadDataInterface;

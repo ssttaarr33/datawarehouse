@@ -1,10 +1,10 @@
 package FormulaProcessorTest;
 
-import com.adrian.interview.model.RecordModel;
-import com.adrian.interview.model.formula.FormulaType1;
-import com.adrian.interview.model.formula.FormulaType2;
-import com.adrian.interview.model.value.DataSourceType;
-import com.adrian.interview.utils.aggregationHandling.FormulaProcessor;
+import com.adrian.interview.entity.RecordModel;
+import com.adrian.interview.aggregationHandling.formula.FormulaType1;
+import com.adrian.interview.aggregationHandling.formula.FormulaType2;
+import com.adrian.interview.aggregationHandling.value.DataSourceType;
+import com.adrian.interview.aggregationHandling.FormulaProcessor;
 import com.adrian.interview.utils.misc.Constants;
 import com.adrian.interview.utils.misc.Utils;
 import org.junit.jupiter.api.BeforeEach;

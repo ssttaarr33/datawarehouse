@@ -1,7 +1,7 @@
 package OperationFactoryTest;
 
-import com.adrian.interview.model.QueryRequestModel;
-import com.adrian.interview.model.value.QueryOperation;
+import com.adrian.interview.controller.queryModel.QueryRequestModel;
+import com.adrian.interview.aggregationHandling.value.QueryOperation;
 import com.adrian.interview.operation.OperationFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

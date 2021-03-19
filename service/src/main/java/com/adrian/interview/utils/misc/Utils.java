@@ -1,7 +1,7 @@
 package com.adrian.interview.utils.misc;
 
-import com.adrian.interview.model.RecordModel;
-import com.adrian.interview.model.value.DataSourceType;
+import com.adrian.interview.entity.RecordModel;
+import com.adrian.interview.aggregationHandling.value.DataSourceType;
 import org.apache.commons.csv.CSVRecord;
 
 import java.time.LocalDate;

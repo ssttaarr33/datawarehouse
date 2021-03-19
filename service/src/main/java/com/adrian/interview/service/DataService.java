@@ -1,7 +1,7 @@
 package com.adrian.interview.service;
 
-import com.adrian.interview.model.QueryRequestModel;
-import com.adrian.interview.model.RecordModel;
+import com.adrian.interview.controller.queryModel.QueryRequestModel;
+import com.adrian.interview.entity.RecordModel;
 
 import java.net.MalformedURLException;
 import java.util.List;

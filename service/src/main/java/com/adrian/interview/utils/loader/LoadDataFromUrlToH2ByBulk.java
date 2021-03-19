@@ -1,8 +1,8 @@
 package com.adrian.interview.utils.loader;
 
-import com.adrian.interview.model.RecordModel;
+import com.adrian.interview.entity.RecordModel;
 import com.adrian.interview.repository.CampaignRepository;
-import com.adrian.interview.utils.errorHandling.Exceptions;
+import com.adrian.interview.exception.exceptionHandling.Exceptions;
 import com.adrian.interview.utils.misc.Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;

@@ -1,9 +1,9 @@
 package com.adrian.interview.controller;
 
-import com.adrian.interview.utils.errorHandling.CommonErrorCode;
-import com.adrian.interview.utils.errorHandling.ETLException;
-import com.adrian.interview.utils.errorHandling.InvalidActionException;
-import com.adrian.interview.utils.responseModel.RestResponse;
+import com.adrian.interview.exception.CommonErrorCode;
+import com.adrian.interview.exception.exceptionHandling.ETLException;
+import com.adrian.interview.exception.InvalidActionException;
+import com.adrian.interview.controller.responseModel.RestResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
