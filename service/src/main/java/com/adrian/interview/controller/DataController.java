@@ -6,6 +6,7 @@ import com.adrian.interview.operation.OperationFactory;
 import com.adrian.interview.service.DataService;
 import com.adrian.interview.utils.errorHandling.ETLException;
 import com.adrian.interview.utils.errorHandling.Exceptions;
+import com.adrian.interview.utils.errorHandling.InvalidActionException;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +64,7 @@ public class DataController<T> {
                 .getOperation(requestModel.getAction())
                 .orElseThrow(() -> {
                     log.error("Invalid query operation: {}", requestModel.getAction());
-                    return new IllegalArgumentException("Invalid Action!");
+                    return new InvalidActionException("Invalid Action!");
                 });
         return (RestResponse<T>) RestResponse.ok(targetOperation.apply(requestModel));
     }

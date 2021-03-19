@@ -32,6 +32,10 @@ public class DataServiceImpl implements DataService {
     public Object getDataWithPredicate(QueryRequestModel queryModel) {
         GenericSpecification specs = new GenericSpecification<RecordModel>();
         queryModel.getCriteriaPair().forEach(specs::add);
+        return getData(queryModel, specs);
+    }
+
+    private Object getData(QueryRequestModel queryModel, GenericSpecification specs) {
         if (queryModel.getFormula2() != null) {
             return FormulaProcessor.processFormula(queryModel.getFormula2(), campaignRepository.findAll(specs));
         }

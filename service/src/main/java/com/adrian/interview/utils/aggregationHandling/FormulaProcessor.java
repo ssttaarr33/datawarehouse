@@ -4,6 +4,8 @@ import com.adrian.interview.model.AdditionalAggregation;
 import com.adrian.interview.model.RecordModel;
 import com.adrian.interview.model.formula.FormulaType1;
 import com.adrian.interview.model.formula.FormulaType2;
+import com.adrian.interview.utils.errorHandling.InvalidActionException;
+import com.adrian.interview.utils.misc.Constants;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import org.apache.commons.lang3.tuple.Pair;
@@ -17,7 +19,7 @@ public class FormulaProcessor {
     public static Object postAggregate(List all, AdditionalAggregation additionalAggregation) {
         AggregationType aggregate = AggregationFactory
                 .getAggregation(Pair.of(additionalAggregation.getKey(), additionalAggregation.getAggregatedValue()))
-                .orElseThrow(() -> new IllegalArgumentException("Invalid Aggregator"));
+                .orElseThrow(() -> new InvalidActionException("Invalid Aggregator"));
         return aggregate.apply(all);
     }
 
@@ -42,9 +44,9 @@ public class FormulaProcessor {
     private static float computeMultiplier(List all, float multiplied, List<String> numbers) {
         for (String namedMultiplier : numbers) {
             switch (namedMultiplier) {
-                case "clicks":
+                case Constants.CLICKS:
                     return multiplied * getTotalClicks(all);
-                case "impressions":
+                case Constants.IMPRESSIONS:
                     return multiplied * getTotalImpressions(all);
                 default:
                     break;

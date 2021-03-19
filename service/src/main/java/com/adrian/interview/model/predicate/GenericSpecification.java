@@ -43,13 +43,8 @@ public class GenericSpecification<T> implements Specification {
 
     @Override
     public Predicate toPredicate(Root root, CriteriaQuery query, CriteriaBuilder builder) {
-
         List<Predicate> predicates = new ArrayList<>();
-
-        for (Criteria criteria : list) {
-            predicates.add(returnPredicate(builder, root, criteria));
-
-        }
+        list.forEach(criteria -> predicates.add(returnPredicate(builder, root, criteria)));
         return builder.and(predicates.toArray(new Predicate[0]));
     }
 

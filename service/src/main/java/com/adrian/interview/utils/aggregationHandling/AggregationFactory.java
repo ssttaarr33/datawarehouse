@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class AggregationFactory {
-    static Map<Pair, AggregationType> aggregators = new HashMap<>();
+class AggregationFactory {
+    private static Map<Pair, AggregationType> aggregators = new HashMap<>();
 
     static {
         aggregators.put(Pair.of(Constants.DATA_SOURCE_TYPE, Constants.CAMPAIGN), new ByDataSourceCampaign());
@@ -20,7 +20,7 @@ public class AggregationFactory {
         aggregators.put(Pair.of(Constants.DATA_SOURCE_TYPE, Constants.CLICKS), new ByDataSourceClicks());
     }
 
-    public static Optional<AggregationType> getAggregation(Pair pair) {
+    static Optional<AggregationType> getAggregation(Pair pair) {
         return Optional.ofNullable(aggregators.get(pair));
     }
 }

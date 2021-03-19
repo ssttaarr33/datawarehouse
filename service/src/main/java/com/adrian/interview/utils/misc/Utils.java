@@ -15,11 +15,11 @@ public class Utils {
 
     public static RecordModel recordBuilder(CSVRecord csvRecord){
         return RecordModel.builder()
-                .dataSourceType(DataSourceType.fromValue(csvRecord.get("Datasource")).toValue())
-                .campaign(csvRecord.get("Campaign"))
-                .daily(Utils.textToDate(csvRecord.get("Daily")))
-                .clicks(Integer.parseInt(csvRecord.get("Clicks")))
-                .impressions(Integer.parseInt(csvRecord.get("Impressions")))
+                .dataSourceType(DataSourceType.fromValue(csvRecord.get(Constants.DATA_SOURCE_TYPE_FIELD)).toValue())
+                .campaign(csvRecord.get(Constants.CAMPAIGN_FIELD))
+                .daily(Utils.textToDate(csvRecord.get(Constants.DAILY_FIELD)))
+                .clicks(Integer.parseInt(csvRecord.get(Constants.CLICKS_FIELD)))
+                .impressions(Integer.parseInt(csvRecord.get(Constants.IMPRESSIONS_FIELD)))
                 .build();
     }
 }
