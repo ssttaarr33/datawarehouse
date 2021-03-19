@@ -1,5 +1,7 @@
 package com.adrian.interview.model.value;
 
+import java.util.Arrays;
+
 public enum DataSourceType {
     GOOGLE("Google Ads"),
     TWITTER("Twitter Ads"),
@@ -12,21 +14,17 @@ public enum DataSourceType {
     }
 
     public static DataSourceType fromValue(String value) {
-        if (value != null) {
-            for (DataSourceType type : values()) {
-                if (type.value.equals(value)) {
-                    return type;
-                }
-            }
-        }
-        return getDefault();
+        return Arrays.stream(values())
+                .filter(type -> type.value.equals(value))
+                .findFirst()
+                .orElseGet(DataSourceType::getDefault);
     }
 
     private static DataSourceType getDefault() {
         return OTHER;
     }
 
-    public String toValue(){
+    public String toValue() {
         return value;
     }
 }

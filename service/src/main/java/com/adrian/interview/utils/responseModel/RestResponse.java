@@ -25,11 +25,7 @@ public class RestResponse<T> {
         return new RestResponse(RestResponse.ServiceResponse.OK, data);
     }
 
-    public static RestResponse ok() {
-        return ok(null);
-    }
-
-    public static <T> RestResponse<T> fail(ErrorCode errorCode, String errorDescription, T data) {
+    public static <T> RestResponse fail(ErrorCode errorCode, String errorDescription, T data) {
         return fail(errorCode.numericCode(), errorCode.stringCode(), errorDescription, data);
     }
 

@@ -1,4 +1,4 @@
-package com.adrian.interview.utils.swagger;
+package com.adrian.interview.utils.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

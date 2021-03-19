@@ -1,6 +1,7 @@
 package com.adrian.interview.utils.aggregationHandling;
 
 import com.adrian.interview.utils.aggregationHandling.collection.*;
+import com.adrian.interview.utils.misc.Constants;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.HashMap;
@@ -11,12 +12,12 @@ public class AggregationFactory {
     static Map<Pair, AggregationType> aggregators = new HashMap<>();
 
     static {
-        aggregators.put(Pair.of("dataSourceType", "campaign"), new ByDataSourceCampaign());
-        aggregators.put(Pair.of("campaign", "dataSourceType"), new ByCampaignDataSource());
-        aggregators.put(Pair.of("campaign", "clicks"), new ByCampaignClicks());
-        aggregators.put(Pair.of("campaign", "impressions"), new ByCampaignImpressions());
-        aggregators.put(Pair.of("dataSourceType", "impressions"), new ByDataSourceImpressions());
-        aggregators.put(Pair.of("dataSourceType", "clicks"), new ByDataSourceClicks());
+        aggregators.put(Pair.of(Constants.DATA_SOURCE_TYPE, Constants.CAMPAIGN), new ByDataSourceCampaign());
+        aggregators.put(Pair.of(Constants.CAMPAIGN, Constants.DATA_SOURCE_TYPE), new ByCampaignDataSource());
+        aggregators.put(Pair.of(Constants.CAMPAIGN, Constants.CLICKS), new ByCampaignClicks());
+        aggregators.put(Pair.of(Constants.CAMPAIGN, Constants.IMPRESSIONS), new ByCampaignImpressions());
+        aggregators.put(Pair.of(Constants.DATA_SOURCE_TYPE, Constants.IMPRESSIONS), new ByDataSourceImpressions());
+        aggregators.put(Pair.of(Constants.DATA_SOURCE_TYPE, Constants.CLICKS), new ByDataSourceClicks());
     }
 
     public static Optional<AggregationType> getAggregation(Pair pair) {

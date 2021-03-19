@@ -1,10 +1,10 @@
 package com.adrian.interview.utils.loader;
 
 import com.adrian.interview.model.RecordModel;
-import com.adrian.interview.model.value.DataSourceType;
 import com.adrian.interview.repository.CampaignRepository;
-import com.adrian.interview.utils.misc.Utils;
 import com.adrian.interview.utils.errorHandling.Exceptions;
+import com.adrian.interview.utils.misc.Utils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 
@@ -15,6 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class LoadDataFromUrlToH2ByBulk implements LoadDataInterface {
 
     @Override
@@ -27,6 +28,7 @@ public class LoadDataFromUrlToH2ByBulk implements LoadDataInterface {
             campaignRepository.saveAll(csvRecords);
             return true;
         } catch (IOException e) {
+            log.error("Error while loading data from: {}", this.getClass().getName());
             throw Exceptions.loadDataByBulkError().get();
         }
     }

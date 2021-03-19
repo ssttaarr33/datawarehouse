@@ -34,6 +34,7 @@ public class DataController<T> {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Get data")
     public RestResponse<T> query() {
+        log.info("Get all data");
         return (RestResponse<T>) RestResponse.ok(dataService.getAll());
     }
 
@@ -43,8 +44,10 @@ public class DataController<T> {
     @ApiOperation("Load data")
     public RestResponse<T> loadData(@NotEmpty @PathVariable("strategy") String strategy, @RequestParam(defaultValue = "${app.data.location}") String url) {
         try {
+            log.info("Load data by strategy: {}", strategy);
             return (RestResponse<T>) RestResponse.ok(dataService.loadData(url, strategy));
         } catch (MalformedURLException e) {
+            log.error("Failed to load data by strategy: {}", strategy);
             Supplier<ETLException> etlExceptionSupplier = Exceptions.malformedUrl(url);
             return (RestResponse<T>) RestResponse.fail(etlExceptionSupplier.get().getErrorCode(), "FAIL: " + etlExceptionSupplier.get().getMessage(), null);
         }
@@ -55,9 +58,13 @@ public class DataController<T> {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Get custom data")
     public RestResponse<T> getQueryData(@RequestBody QueryRequestModel requestModel) {
+        log.info("Get data by custom query: {}", requestModel.toString());
         Operation targetOperation = operationFactory
                 .getOperation(requestModel.getAction())
-                .orElseThrow(() -> new IllegalArgumentException("Invalid Operator!"));
+                .orElseThrow(() -> {
+                    log.error("Invalid query operation: {}", requestModel.getAction());
+                    return new IllegalArgumentException("Invalid Action!");
+                });
         return (RestResponse<T>) RestResponse.ok(targetOperation.apply(requestModel));
     }
 

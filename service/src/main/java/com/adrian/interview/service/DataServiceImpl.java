@@ -8,8 +8,8 @@ import com.adrian.interview.utils.aggregationHandling.FormulaProcessor;
 import com.adrian.interview.utils.loader.LoadDataFromUrlToH2ByBulk;
 import com.adrian.interview.utils.loader.LoadDataFromUrlToH2ByStep;
 import com.adrian.interview.utils.loader.LoadDataInterface;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.adrian.interview.utils.misc.Constants;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
@@ -18,12 +18,11 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class DataServiceImpl implements DataService {
-    @Autowired
-    CampaignRepository campaignRepository;
-
     private static Map<String, LoadDataInterface> strategies = new HashMap<>();
+
+    private final CampaignRepository campaignRepository;
 
     public List<RecordModel> getAll() {
         return campaignRepository.findAll();
@@ -59,7 +58,7 @@ public class DataServiceImpl implements DataService {
     }
 
     private void populateStrategies() {
-        strategies.put("byBulk", new LoadDataFromUrlToH2ByBulk());
-        strategies.put("byStep", new LoadDataFromUrlToH2ByStep());
+        strategies.put(Constants.BY_BULK, new LoadDataFromUrlToH2ByBulk());
+        strategies.put(Constants.BY_STEP, new LoadDataFromUrlToH2ByStep());
     }
 }
