@@ -10,7 +10,7 @@ This is a springboot project that supports ETL operations and dynamic queries.
 4. [Transform](#transform)
 5. [Query](#query)
 6. [Utilities](#utilities)
-7. [High Level Design for Integration](#hld)
+7. [High Level Design for Integration](#high-level-design-for-integration)
 
 ## Solution Design
 ![sdd](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/sdd.png)
