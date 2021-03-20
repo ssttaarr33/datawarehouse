@@ -8,6 +8,7 @@ This is a springboot project that supports ETL operations and dynamic queries.
 2. [Extract](#extract)
 3. [Transform](#transform)
 4. [Query](#query)
+5. [Utilities](#utilities)
 
 
 ## Load
@@ -134,3 +135,12 @@ This is a springboot project that supports ETL operations and dynamic queries.
 		            }
 		        ]
 		```        
+
+## Utilities
+### H2 DB browser console
+In memory H2 DB can be administered from the bundled console which is available at this endpoint:
+```sh
+    <host>/api/h2/
+```
+_username: **sa** password: (empty)_
+![console screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/console.PNG)
