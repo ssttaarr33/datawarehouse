@@ -4,12 +4,15 @@
 This is a springboot project that supports ETL operations and dynamic queries.
 
 # Table of Contents
-1. [Load](#Load)
-2. [Extract](#extract)
-3. [Transform](#transform)
-4. [Query](#query)
-5. [Utilities](#utilities)
+1. [Solution Design](#sdd)
+2. [Load](#Load)
+3. [Extract](#extract)
+4. [Transform](#transform)
+5. [Query](#query)
+6. [Utilities](#utilities)
 
+## Solution Design
+![sdd](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/sdd.PNG)
 
 ## Load
 - there is an api for loading data:
