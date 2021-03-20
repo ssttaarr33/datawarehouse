@@ -14,6 +14,7 @@ This is a springboot project that supports ETL operations and dynamic queries.
 
 ## Solution Design
 ![sdd](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/sdd.png)
+The design follows the onion architecture principle, being modeled on layers of logic. This lets it open for adding further functionality without changing the current one.
 
 ## Load
 - there is an api for loading data:
