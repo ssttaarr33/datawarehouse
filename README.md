@@ -10,6 +10,7 @@ This is a springboot project that supports ETL operations and dynamic queries.
 4. [Transform](#transform)
 5. [Query](#query)
 6. [Utilities](#utilities)
+7. [High Level Design for Integration](#hld)
 
 ## Solution Design
 ![sdd](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/sdd.png)
@@ -160,3 +161,10 @@ Swagger interface available at this endpoint:
 - utility test (_groovy_)
 - _more tests should be added_
 - _contract testing with spring cloud contract can be added_
+
+## High Level Design for Integration
+This is a possible scenario for integration.
+![hld](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/hld.png)
+- multiple instances of this service(**DWH ETL**) can live in a _Kubernetes_ cluster
+- in a production scenario, H2 DB could be replace by an **Aerospike cluster** 
+- a kafka broker can be added in order to trigger automatic data loading from the external _dataStorage_ or it can populate data directly to Aerospike(by using _byStep_ loading strategy)
