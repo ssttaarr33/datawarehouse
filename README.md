@@ -144,3 +144,16 @@ In memory H2 DB can be administered from the bundled console which is available 
 ```
 _username: **sa** password: (empty)_
 ![console screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/console.PNG)
+
+### Swagger UI
+Swagger interface available at this endpoint:
+```sh
+    <host>/api/swagger-ui.html
+```  
+![swagger screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/swagger.PNG)
+### Tests
+- unit tests (_java_)
+- integration tests (_java_)
+- utility test (_groovy_)
+- _more tests should be added_
+- _contract testing with spring cloud contract can be added_
