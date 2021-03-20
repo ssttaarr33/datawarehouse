@@ -102,3 +102,35 @@ This is a springboot project that supports ETL operations and dynamic queries.
                  "data": 0.2920056
             }
          ```
+    - **criteriaPair** contains the list of **_Criteria_** on which the data will be filtered. The **Criteria** is structured as follows:
+        ```sh
+            String key
+            Object value
+            FilterOperation operation
+        ```
+        - **_FilterOperation_** supports the following _predicates_(other predicates can be added in the future):
+        ```sh
+            GREATER_THAN,
+            LESS_THAN,
+            GREATER_THAN_OR_EQUAL,
+            LESS_THAN_OR_EQUAL,
+            NOT_EQUAL,
+            EQUAL,
+            MATCH,
+            MATCH_END
+        ```
+        - The list of criteria is used to build a predicate to filter the data. The equivalent of a query like _where dataSourceType like '%google%' and clicks > 0_ looks like this:
+        ```sh
+            	"criteriaPair":[
+		            {
+			            "key":"dataSourceType",
+			            "value":"Google",
+			            "operation": "MATCH"
+		            },
+		            {
+			            "key":"clicks",
+			            "value":"0",
+			            "operation": "GREATER_THAN"
+		            }
+		        ]
+		```        
