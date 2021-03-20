@@ -12,7 +12,7 @@ This is a springboot project that supports ETL operations and dynamic queries.
 6. [Utilities](#utilities)
 
 ## Solution Design
-![sdd](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/sdd.PNG)
+![sdd](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/sdd.png)
 
 ## Load
 - there is an api for loading data:
