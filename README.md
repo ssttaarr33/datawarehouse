@@ -157,6 +157,25 @@ Swagger interface available at this endpoint:
     <host>/api/swagger-ui.html
 ```  
 ![swagger screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/swagger.PNG)
+
+### Grafana
+The application can be started from the included docker-compose file:
+- in the root directory, run:
+```sh
+    docker-compose up -d
+```
+- This will run the following containers:
+    - prometheus
+    - grafana
+    - dwhEtl(this application)
+Grafana will be available on port 3000:  
+![grafana screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/grafana.PNG)
+
+Prometheus will be available on port 9090:
+![prometheus screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/prometheus.PNG)
+
+Data from _Actuator_ is exposed to **Prometheus** via **Micrometer**. **Prometheus** is added as datasource to **Grafana** so you can build all kinds of dashboards. 
+
 ### Tests
 - unit tests (_java_)
 - integration tests (_java_)
