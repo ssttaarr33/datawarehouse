@@ -174,7 +174,9 @@ Grafana will be available on port 3000:
 Prometheus will be available on port 9090:
 ![prometheus screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/prometheus.PNG)
 
-Data from _Actuator_ is exposed to **Prometheus** via **Micrometer**. **Prometheus** is added as datasource to **Grafana** so you can build all kinds of dashboards. 
+Data from _Actuator_ is exposed to **Prometheus** via **Micrometer**. **Prometheus** is added as datasource to **Grafana** so you can build all kinds of dashboards.
+
+For now, only a JVM dashboard is added, but _as a future improvement, more dashboards can be added._
 
 ### Tests
 - unit tests (_java_)
