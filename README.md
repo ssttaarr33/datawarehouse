@@ -168,6 +168,7 @@ The application can be started from the included docker-compose file:
     - prometheus
     - grafana
     - dwhEtl(this application)
+    
 Grafana will be available on port 3000:  
 ![grafana screenshot](https://github.com/ssttaarr33/datawarehouse/blob/master/service/src/main/resources/grafana.PNG)
 
